@@ -1,4 +1,4 @@
-import { createTaskComponent} from './js/task_component.js';
+import { createTaskComponent, isValidTaskName } from './js/task_component.js';
 
 
 
@@ -14,7 +14,7 @@ displayArea.appendChild(createTaskComponent("Do the laundry."));
 addBtn.addEventListener('click', () => {
 	const taskName = taskInput.value;
 
-	if(taskName) {
+	if(isValidTaskName(taskName)) {
 		const newTask = createTaskComponent(taskName);
 		displayArea.appendChild(newTask);
 		taskInput.value = "";

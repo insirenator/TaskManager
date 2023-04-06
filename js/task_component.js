@@ -93,7 +93,9 @@ function createTaskComponent(taskName) {
 		crossBtn.style.display = "none";		
 		doneBtn.style.display = "none";
 
-		task_name = task.value;
+		if(isValidTaskName(task.value))
+			task_name = task.value;
+		task.value = task_name;
 
 	});
 
@@ -112,4 +114,8 @@ function createTaskComponent(taskName) {
 	return taskContainer;
 }
 
-export { createTaskComponent };
+function isValidTaskName(task_name) {
+	return /^[\d\w]+/.test(task_name);
+}
+
+export { createTaskComponent, isValidTaskName };
