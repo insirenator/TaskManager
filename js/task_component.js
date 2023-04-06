@@ -1,10 +1,13 @@
-function createTaskComponent(taskName) {
+import * as op from './operations.js';
+
+function createTaskComponent(taskName, uniqueId, completed=false) {
 
 	let task_name = taskName;
 
 	// Main container
 	const taskContainer = document.createElement('div');
 	taskContainer.classList.add('task-container');
+	taskContainer.id = uniqueId;
 	
 	//Checkbox
 	const checkbox = document.createElement('input');
@@ -17,14 +20,6 @@ function createTaskComponent(taskName) {
 	task.value = taskName;
 	task.type = "text";
 	task.disabled = true;
-	
-	/*task.onblur = () => {
-		task.disabled = true;
-		editBtn.style.display = "inline";
-		deleteBtn.style.display = "inline";
-		checkbox.style.display = "inline";		
-		doneBtn.style.display = "none";
-	};*/
 	
 	// Control Icons
 	// Edit
@@ -39,6 +34,7 @@ function createTaskComponent(taskName) {
 	deleteBtn.classList.add('icons');
 	deleteBtn.textContent = 'delete';
 	deleteBtn.onclick = () => {
+		op.deleteTask(uniqueId);
 		taskContainer.remove();
 	};
 
@@ -72,6 +68,11 @@ function createTaskComponent(taskName) {
 			task.style.textDecoration = "none";
 		}
 	};
+
+	if(completed){
+		checkbox.checked = true;
+		task.style.textDecoration = "line-through";
+	}
 
 	// Edit Button Function
 	editBtn.addEventListener('click', () => {
