@@ -86,6 +86,7 @@ function createTaskComponent(taskName) {
 
 	// Done Button Function
 	doneBtn.addEventListener('click', () => {
+		task.disabled = true;
 		editBtn.style.display = "inline";
 		deleteBtn.style.display = "inline";
 		checkbox.style.display = "inline";
@@ -98,6 +99,7 @@ function createTaskComponent(taskName) {
 
 	// Cross Button Function
 	crossBtn.addEventListener('click', () => {
+		task.disabled = true;
 		editBtn.style.display = "inline";
 		deleteBtn.style.display = "inline";
 		checkbox.style.display = "inline";
