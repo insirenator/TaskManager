@@ -21,6 +21,13 @@ function deleteTask(uniqueId) {
 	localStorage.setItem('taskList', JSON.stringify(taskList));
 }
 
+function updateTask(uniqueId, newName, newStatus = false) {
+	let taskList = getTaskList();
+	taskList[uniqueId].name = newName;
+	taskList[uniqueId].completed = newStatus;
+	localStorage.setItem('taskList', JSON.stringify(taskList));
+}
 
 
-export { getTaskList, createTask, deleteTask };
+
+export { getTaskList, createTask, deleteTask, updateTask };

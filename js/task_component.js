@@ -64,8 +64,10 @@ function createTaskComponent(taskName, uniqueId, completed=false) {
 	checkbox.onclick = () => {
 		if(checkbox.checked) {
 			task.style.textDecoration = "line-through";
+			op.updateTask(uniqueId, task_name, true);
 		} else {
 			task.style.textDecoration = "none";
+			op.updateTask(uniqueId, task_name, false);
 		}
 	};
 
@@ -94,8 +96,10 @@ function createTaskComponent(taskName, uniqueId, completed=false) {
 		crossBtn.style.display = "none";		
 		doneBtn.style.display = "none";
 
-		if(isValidTaskName(task.value))
+		if(isValidTaskName(task.value)) {
 			task_name = task.value;
+			op.updateTask(uniqueId, task_name);
+		}		
 		task.value = task_name;
 
 	});
