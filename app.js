@@ -14,6 +14,8 @@ addBtn.addEventListener('click', () => {
 	if(taskName) {
 		const newTask = createTaskComponent(taskName);
 		displayArea.appendChild(newTask);
-
+		taskInput.value = "";
 	}
+	taskInput.focus();
+
 });

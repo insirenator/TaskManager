@@ -37,6 +37,15 @@ function createTaskComponent(taskName) {
 	taskContainer.appendChild(editBtn);
 	taskContainer.appendChild(deleteBtn);
 
+	//CheckBox Function
+	checkbox.onclick = () => {
+		if(checkbox.checked) {
+			task.style.textDecoration = "line-through";
+		} else {
+			task.style.textDecoration = "none";
+		}
+	};
+
 	//Return component
 	return taskContainer;
 }

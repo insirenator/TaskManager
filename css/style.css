@@ -1,10 +1,76 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+:root {
+	--blue: #1b68e1;
+}
+
 * {
 	box-sizing: border-box;
-	/*padding: 0.2rem;
-	margin: 0.2rem;*/
+	padding: 0.1rem;
+	margin: 0.1rem;
 	font-family: "Poppins", sans-serif;
+}
+
+body{
+	margin: 0;
+	padding-top: 2rem;
+}
+
+.root-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.input-area {
+	/*border: 1px solid black;*/
+	display: flex;
+	align-items: center;
+}
+
+#task-input {
+	padding: 0.5rem;
+	border: none;
+	border-bottom: 3px solid rgba(0, 0, 0, 0.5); 
+}
+
+#task-input:focus {
+	outline: none;
+	border-color: var(--blue);
+}
+
+#add-btn {
+	color: var(--blue);
+	border: 1px solid var(--blue);
+	border-radius: 8px;
+	margin-left: 10px;
+}
+
+#add-btn:active {
+	color: white;
+	background-color: var(--blue);
+}
+
+.display-area {
+	width: min(600px, 95%);
+	min-height: 500px;
+	box-shadow: 0px 1px 4px 1px rgba(0, 0, 0, 0.5);
+	margin-top: 20px;
+	padding-top: 35px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+}
+
+#your-tasks {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 10px;
+	font-size: 13px;
+	font-weight: bold;
+	color: rgba(0, 0, 0, 0.5);
 }
 
 .icons {
