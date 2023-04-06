@@ -1,17 +1,25 @@
 function createTaskComponent(taskName) {
+	
 	// Main container
 	const taskContainer = document.createElement('div');
+	taskContainer.classList.add('task-container');
+	
 	//Checkbox
 	const checkbox = document.createElement('input');
 	checkbox.type = "checkbox";
+	checkbox.classList.add('checkboxes');
+	
 	// Task
 	const task = document.createElement('input');
+	task.classList.add('task-fields');
 	task.value = taskName;
 	task.type = "text";
 	task.disabled = true;
+	
 	task.onblur = () => {
 		task.disabled = true;
 	};
+	
 	// Control Icons
 	// Edit
 	const editBtn = document.createElement('span');
